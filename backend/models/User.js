@@ -1,13 +1,36 @@
-// make user schema as per need.
-// it is working now from backend...
-// we were outside backend that was the problem.
 import mongoose from "mongoose";
 
 // Defining Schema
-const userSchema = new mongoose.Schema({
-  uname:{type:String, required:true, trim:true},
-  email:{type:String, required:true, trim:true},
-})
+const userSchema = mongoose.Schema(
+  {
+    username: {
+      type: String,
+      required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    referralID: {
+      type: String,
+      required: true, unique: true
+    },
+    referredBy: {
+      type: String
+    },
+    earnings: {
+      type: Number,
+      default: 0
+    },
+  },
+  {
+    timestamps: true,
+  }
+)
 
 // Model 
 const User = mongoose.model("user", userSchema)

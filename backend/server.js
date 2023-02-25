@@ -5,20 +5,26 @@ import cors from 'cors'
 
 const app = express()
 app.use(cors())
-const port = process.env.PORT || '8000'
 
-const DATABASE_URL = process.env.DATABASE_URL || "mongodb://localhost:27017";
+// app.use(express.urlencoded({ limit: '100000000',extended: true, parameterLimit:50000 }));
 
 // Database Connection
-connectDB(DATABASE_URL);
+connectDB();
 
 // JSON
 app.use(express.json())
 
 // Load Routes
+app.get('/', (req, res) => {
+    res.send('API is running')
+})
+
 app.use("/api", route)
 
+const PORT = process.env.PORT || 8000
 
-app.listen(port, () => {
-  console.log(`Server listening at http://localhost:${port}`)
- })
+app.listen(PORT, () => {
+    console.log(
+        `Server running in ${process.env.NODE_ENV} mode on port ${PORT}`
+    )
+})

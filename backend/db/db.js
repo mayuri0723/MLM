@@ -1,15 +1,21 @@
 import mongoose from 'mongoose';
 
-const connectDB = async (DATABASE_URL) => {
- try {
-  const DB_OPTIONS = {
-   dbName: 'MLM',
-  }
-  await mongoose.connect(DATABASE_URL, DB_OPTIONS);
-  console.log('Connected Successfully..');
- } catch (err) {
-  console.log(err);
- }
+/**
+ * Method that connects our MongoDB database.
+ */
+const connectDB = async () => {
+try {
+
+        const atlasURI = `mongodb+srv://root:root@cluster1.8utxkxi.mongodb.net/mlm?retryWrites=true&w=majority`;
+        const conn = await mongoose.connect(atlasURI, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true,
+        })
+        console.log(`MongoDB connected: ${conn.connection.host}`)
+    } catch (error) {
+        console.error(`Error: ${error.message}`)
+        process.exit(1)
+    }
 }
 
 export default connectDB
