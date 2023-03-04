@@ -2,6 +2,7 @@ import User from '../models/User.js'
 import asyncHandler from 'express-async-handler'
 import mongoose from 'mongoose'
 
+
 const addUserDetails = asyncHandler(async(req,res)=>{
   const {
     username,
@@ -27,6 +28,8 @@ const addUserDetails = asyncHandler(async(req,res)=>{
   res.status(201).json(createdUser)
 
 })
+
+
 
 
 export  {addUserDetails}
