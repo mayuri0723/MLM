@@ -15,23 +15,18 @@ import Registration from './components/Registration';
 import Home from './components/Home'
 
 function App() {
-  
+
   return (
     <BrowserRouter>
-    <Routes>
-    {/* <Header /> */}
-    <Route path='/' element={<Home/>} exact />
-        <Container>
-            <Route path='/Login' element={<Login/>}  />
-            <Route path='/Registration' element={<Registration/>} />
-            <Route path='/dashboard' element={<Dashboard/>}/>
-           
-          
-        </Container>
+      <Routes>
+        {/* <Header /> */}
+        <Route path='/' element={<Home />} exact />
+        <Route path='/Login' element={<Login />} />
+        <Route path='/Registration' element={<Registration />} />
+        <Route path='/dashboard' element={<Dashboard />} />
 
-  
-</Routes>
-</BrowserRouter>
+      </Routes>
+    </BrowserRouter>
 
 
   );
