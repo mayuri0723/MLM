@@ -2,29 +2,38 @@
 import React, { useState, useEffect } from 'react'
 import { Container } from 'react-bootstrap'
 // Routing
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import {
+  BrowserRouter,
+  Routes,
+  Route
+} from "react-router-dom";
 // History
-import history from './utils/history.js'
+// import history from './history.js'
 import Dashboard from './components/Dashboard';
 import Login from './components/Login';
 import Registration from './components/Registration';
 import Home from './components/Home'
 
 function App() {
+  
   return (
-    <Router  history={history}>
+    <BrowserRouter>
+    <Routes>
     {/* <Header /> */}
-    <Route path='/' component={Home} exact />
+    <Route path='/' element={<Home/>} exact />
         <Container>
-            <Route path='/Login' component={Login}  />
-            <Route path='/Registration' component={Registration} />
-            <Route path='/dashboard' component={Dashboard}/>
+            <Route path='/Login' element={<Login/>}  />
+            <Route path='/Registration' element={<Registration/>} />
+            <Route path='/dashboard' element={<Dashboard/>}/>
            
           
         </Container>
 
   
-</Router>
+</Routes>
+</BrowserRouter>
+
+
   );
 }
 

@@ -1,11 +1,12 @@
 import React from 'react'
+import Login from './Login'
 
-const Home = ({history}) => {
+const Home = ({ history }) => {
   return (
     <div>
-        Home
-
-        Welcome To Home Page
+      Home
+      {/* <Login /> */}
+      Welcome To Home Page
     </div>
   )
 }

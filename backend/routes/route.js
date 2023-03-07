@@ -16,7 +16,7 @@ router.route('/api/referrals/:userID').get()
 //earnings API
 router.route('/api/earnings/:userID').get()
 //payment API
-router.router('payment processing API').post()
+router.route('payment processing API').post()
 
 
 
